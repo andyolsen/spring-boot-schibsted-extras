@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="John Doe" id="Created EMPLOYEE table">
+
+        <preConditions>
+            <not>
+                <tableExists tableName="EMPLOYEE"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="EMPLOYEE">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="EMPLOYEE_NAME" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMPLOYEE_ADDRESS" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="EMPLOYEE"/>
+        </rollback>
+
+    </changeSet>
+
+</databaseChangeLog>

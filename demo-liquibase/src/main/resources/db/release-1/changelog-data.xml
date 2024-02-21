@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="John Doe" id="Populated EMPLOYEE table">
+
+        <preConditions>
+            <tableExists tableName="EMPLOYEE"/>
+        </preConditions>
+
+        <sql>
+            INSERT INTO EMPLOYEE VALUES (1, 'Huey', 'Norway');
+            INSERT INTO EMPLOYEE VALUES (2, 'Louis', 'Sweden');
+            INSERT INTO EMPLOYEE VALUES (3, 'Dewey', 'Finland');
+        </sql>
+
+    </changeSet>
+
+</databaseChangeLog>
